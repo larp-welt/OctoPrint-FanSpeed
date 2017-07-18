@@ -27,7 +27,7 @@ plugin_author = "Marcus J. Ertl"
 plugin_author_email = "marcus.ertl@colorful-sky.de"
 
 # The plugin's homepage URL. Can be overwritten within OctoPrint's internal data via __plugin_url__ in the plugin module
-plugin_url = "https://github.com/you/OctoPrint-Fanspeed"
+plugin_url = "https://github.com/larp-welt/OctoPrint-FanSpeed"
 
 # The plugin's license. Can be overwritten within OctoPrint's internal data via __plugin_license__ in the plugin module
 plugin_license = "AGPLv3"

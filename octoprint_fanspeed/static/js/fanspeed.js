@@ -4,13 +4,16 @@ $(function() {
 
         self.fanspeedViewModel = parameters[0];
 
+        self.speed = ko.observable();
+        self.speed("N/A")
+
         self.onDataUpdaterPluginMessage = function(plugin, data) {
             if (plugin != "fanspeed") {
                 return;
             }
 
+            self.speed(data.speed)
             console.log("FanspeedViewModel: fanspeed "+data.speed);
-            $("#NavbarFanspeed").text(data.speed);
         };
     }
 
