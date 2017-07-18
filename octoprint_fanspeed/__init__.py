@@ -3,6 +3,7 @@ from __future__ import absolute_import
 
 import re
 import octoprint.plugin
+from flask.ext.babel import gettext
 
 class FanSpeedPlugin(octoprint.plugin.StartupPlugin,
                      octoprint.plugin.TemplatePlugin,
@@ -20,14 +21,14 @@ class FanSpeedPlugin(octoprint.plugin.StartupPlugin,
             if s and s.group(1):
                 s = s.group(1)
                 if int(s) == 0:
-                    self.speed = 'Off'
+                    self.speed = gettext('Off')
                 else:
                     self.speed = str(int(float(s)*100.0/255.0))+"%"
-                self._logger.info("Fan Speed: "+self.speed)
+                self._logger.info(gettext("Fan")+": "+self.speed)
                 self._plugin_manager.send_plugin_message(self._identifier, dict(speed=self.speed))
         if gcode and gcode.startswith('M107'):
-            self.speed = 'Off'
-            self._logger.info("Fan Speed: "+self.speed)
+            self.speed = gettext('Off')
+            self._logger.info(gettext("Fan")+": "+self.speed)
             self._plugin_manager.send_plugin_message(self._identifier, dict(speed=self.speed))
         return None
 

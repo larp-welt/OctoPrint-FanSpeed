@@ -2,7 +2,7 @@ $(function() {
     function FanspeedViewModel(parameters) {
         var self = this;
 
-        self.fanspeedViewModel = parameters[0];
+        self.fanspeedModel = parameters[0];
 
         self.speed = ko.observable();
         self.speed("N/A")
@@ -18,10 +18,10 @@ $(function() {
     }
 
 
-    OCTOPRINT_VIEWMODELS.push([
+    ADDITIONAL_VIEWMODELS.push([
         FanspeedViewModel,
-        [],
-        ["#NavbarFanspeed"]
+        ["temperatureViewModel"],
+        ["#NavbarFanspeed", "#NavbarFanspeedMenu"]
     ]);
 
 });
