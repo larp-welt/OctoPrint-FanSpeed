@@ -1,0 +1,4 @@
+include README.md
+recursive-include octoprint_fanspeed/templates *
+recursive-include octoprint_fanspeed/translations *
+recursive-include octoprint_fanspeed/static *
