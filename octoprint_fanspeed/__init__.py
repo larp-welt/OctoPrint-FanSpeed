@@ -34,6 +34,23 @@ class FanSpeedPlugin(octoprint.plugin.StartupPlugin,
     def get_assets(self):
         return { "js": ["js/fanspeed.js"] }
 
+    def get_update_information(self):
+        return dict(
+            costestimation=dict(
+                displayName="Fan Speed",
+                displayVersion=self._plugin_version,
+
+                # version check: github repository
+                type="github_release",
+                user="larp-welt",
+                repo="OctoPrint-FanSpeed",
+                current=self._plugin_version,
+
+                # update method: pip
+                pip="https://github.com/larp-welt/OctoPrint-FanSpeed/archive/{target_version}.zip"
+            )
+        )
+
 __plugin_name__ = "Fan Speed"
 __plugin_implementation__ = FanSpeedPlugin()
 __plugin_hooks__ = { "octoprint.comm.protocol.gcode.sent": __plugin_implementation__.process_gcode }
